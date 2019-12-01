@@ -54,36 +54,36 @@ def lstm_model():
     # model
     model = Sequential()
     # add conv1D layer
-    model.add(Conv1D(filters=32, kernel_size=7, padding='same', dilation_rate=2,
+    model.add(Conv1D(filters=32, kernel_size=5, padding='same', dilation_rate=2,
                      activation='relu', input_shape=(features_num, vec_size)))
     #model.add(Dropout(0.2))
     model.add(MaxPooling1D(pool_size=3))
     model.add(Dropout(0.2))
 
-    for i in range(4):
+    for i in range(3):
     # add conv1D layer
-        model.add(Conv1D(filters=32, kernel_size=7, dilation_rate=2,
+        model.add(Conv1D(filters=32, kernel_size=5, dilation_rate=2,
                         padding='same', activation='relu'))
     
     model.add(MaxPooling1D(pool_size=3))
     model.add(Dropout(0.2)) 
 
-    for i in range(5):
+    for i in range(4):
         model.add(Conv1D(filters=64, kernel_size=5,
                         padding='same', activation='relu'))
 
     model.add(MaxPooling1D(pool_size=3))
     model.add(Dropout(0.2))
 
-    for i in range(5):
+    for i in range(4):
         model.add(Conv1D(filters=128, kernel_size=3,
                         padding='same', activation='relu'))
     
     model.add(MaxPooling1D(pool_size=3))
     model.add(Dropout(0.2))
     
-    for i in range(5):
-        model.add(Conv1D(filters=256, kernel_size=3,
+    for i in range(4):
+        model.add(Conv1D(filters=128, kernel_size=3,
                         padding='same', activation='relu'))
 
     model.add(MaxPooling1D(pool_size=3))
